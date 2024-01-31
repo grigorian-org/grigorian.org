@@ -2,27 +2,64 @@
 <html>
 	<head>
 		<meta charset="utf-8" />
-		<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet" >
 		<title>grigorian.org</title>
 		<style>
 			html, body {
 				width: 100%;
 				height: 100%;
 				margin: 0;
+				padding: 0;
+				background: #FFF;
+				transition: background-color 300ms ease-in-out;
 				display: flex;
 				align-items: center;
 				justify-content: center;
-				background: #FFF;
-				font-family: "Pacifico", cursive;
+				flex-direction: column;
 			}
-			h1 {
-				position: relative;
-				font-size: 100px;
-				color: #000;
+			img {
+				/* pointer-events: none; */
+				width: 100%;
+				max-width: 500px;
+				box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+				transition: box-shadow 300ms ease-in-out, transform 300ms ease-in-out;
+				border-radius: 15px;
+				transform: scale3d(1, 1, 1);
+			}
+			img:hover {
+				box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+				transform: scale3d(1.03, 1.03, 1.03) rotate3d(0, 0, 1, 3deg);
+			}
+			.grow {
+				flex: 0;
+				width: 100%;
+				transition: all 300ms ease-in-out;
+			}
+			a {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				flex-direction: column;
+				height: 100%;
+				width: 100%;
+			}
+			@media screen and (max-width: 500px) {
+				html, body {
+					background: #282D35;
+				}
+				img, img:hover {
+					box-shadow: none;
+					transform: scale3d(1, 1, 1);
+				}
+				.grow {
+					flex: auto;
+				}
 			}
 		</style>
 	</head>
 	<body>
-		<h1>grigorian</h1>
+		<a href="./id_rsa.pub" target="_blank" >
+			<img src="./ssh.svg" alt="ssh" />
+			<div class="grow" ></div>
+		</a>
 	</body>
 </html>
